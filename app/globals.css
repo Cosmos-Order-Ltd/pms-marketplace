@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-900 font-semibold py-3 px-6 rounded-lg border border-gray-300 transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+
+  .card-hover {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-800;
+  }
+
+  .badge-info {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .badge-purple {
+    @apply badge bg-purple-100 text-purple-800;
+  }
+
+  /* Property card specific styles */
+  .property-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer;
+  }
+
+  .property-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Vendor card specific styles */
+  .vendor-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Rating stars */
+  .rating-stars {
+    @apply flex items-center space-x-1;
+  }
+
+  .star-filled {
+    @apply text-yellow-400;
+  }
+
+  .star-empty {
+    @apply text-gray-300;
+  }
+
+  /* Filter sidebar */
+  .filter-sidebar {
+    @apply sticky top-32 bg-white rounded-lg shadow-sm border border-gray-200 p-4;
+  }
+
+  /* Search and filter bar */
+  .search-bar {
+    @apply flex space-x-4 mb-4;
+  }
+
+  .search-input {
+    @apply flex-1 relative;
+  }
+
+  .location-input {
+    @apply w-64 relative;
+  }
+
+  /* Responsive grid layouts */
+  .properties-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
+  }
+
+  .vendors-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+  }
+
+  .categories-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom animations for marketplace */
+  .animate-price-highlight {
+    animation: priceHighlight 2s ease-in-out;
+  }
+
+  @keyframes priceHighlight {
+    0% { background-color: transparent; }
+    50% { background-color: #fef3c7; }
+    100% { background-color: transparent; }
+  }
+
+  .animate-favorite {
+    animation: favorite 0.6s ease-in-out;
+  }
+
+  @keyframes favorite {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  /* Property type specific colors */
+  .property-hotel {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .property-villa {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .property-apartment {
+    @apply bg-purple-100 text-purple-800;
+  }
+
+  .property-resort {
+    @apply bg-orange-100 text-orange-800;
+  }
+
+  /* Vendor availability indicators */
+  .availability-available {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .availability-busy {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .availability-unavailable {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* Price range indicators */
+  .price-budget {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .price-mid {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .price-premium {
+    @apply bg-purple-100 text-purple-800;
+  }
+}
